@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  dynamodb-local:
+    container_name: dynamodb-local
+    image: amazon/dynamodb-local:2.2.0
+    restart: on-failure
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
+    ports:
+      - "8000:8000"
+    volumes:
+      - "~/.dynamodb:/home/dynamodblocal/data"
+    working_dir: /home/dynamodblocal
