@@ -2,6 +2,7 @@ version: "3.9"
 
 services:
   redis:
+    container_name: redis
     image: redis:7.2.3-alpine3.19
     restart: on-failure
     command: redis-server /usr/local/etc/redis/redis.conf
