@@ -12,3 +12,12 @@ services:
       - ./redis.conf:/usr/local/etc/redis/redis.conf
       # - ./redis-snapshot.rdb:/data/dump.rdb
       # - ~/.redis:/data
+  redis-commander:
+    container_name: redis-commander
+    hostname: redis-commander
+    image: ghcr.io/joeferner/redis-commander:0.8.1
+    restart: always
+    environment:
+      - REDIS_HOSTS=local:redis:6379
+    ports:
+      - "8081:8081"
