@@ -16,6 +16,7 @@ services:
     container_name: redis-commander
     hostname: redis-commander
     image: ghcr.io/joeferner/redis-commander:0.8.1
+    restart: on-failure
     restart: always
     environment:
       - REDIS_HOSTS=local:redis:6379
