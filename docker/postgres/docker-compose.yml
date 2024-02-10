@@ -5,14 +5,14 @@ services:
     container_name: postgres
     image: postgres:16.1-alpine3.19
     restart: on-failure
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: postgres
       POSTGRES_DB: postgres
       POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
   pgadmin:
     container_name: pgadmin
     image: dpage/pgadmin4:8.3

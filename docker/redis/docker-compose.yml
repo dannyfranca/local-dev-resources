@@ -6,12 +6,10 @@ services:
     image: redis:7.2.3-alpine3.19
     restart: on-failure
     command: redis-server /usr/local/etc/redis/redis.conf
-    ports:
-      - "6379:6379"
     volumes:
       - ./redis.conf:/usr/local/etc/redis/redis.conf
-      # - ./redis-snapshot.rdb:/data/dump.rdb
-      # - ~/.redis:/data
+    ports:
+      - "6379:6379"
   redis-commander:
     container_name: redis-commander
     hostname: redis-commander

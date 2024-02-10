@@ -7,10 +7,10 @@ services:
     restart: on-failure
     user: root
     command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
-    ports:
-      - "8000:8000"
     volumes:
       - "dynamodb-data:/home/dynamodblocal/data"
+    ports:
+      - "8000:8000"
     working_dir: /home/dynamodblocal
   dynamodb-admin:
     build:
