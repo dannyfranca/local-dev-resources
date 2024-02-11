@@ -4,7 +4,7 @@ services:
   dynamodb-local:
     container_name: dynamodb-local
     image: amazon/dynamodb-local:2.2.0
-    restart: on-failure
+    restart: unless-stopped
     user: root
     command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
     volumes:
@@ -16,7 +16,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    restart: on-failure
+    restart: unless-stopped
     ports:
       - "8001:8001"
     environment:

@@ -4,7 +4,7 @@ services:
   mongo:
     container_name: mongo
     image: mongo:7.0.5-jammy
-    restart: on-failure
+    restart: unless-stopped
     environment:
       MONGO_INITDB_ROOT_USERNAME: mongo
       MONGO_INITDB_ROOT_PASSWORD: mongo
@@ -15,7 +15,7 @@ services:
   mongo-express:
     container_name: mongo-express
     image: mongo-express:1.0.2-20-alpine3.19
-    restart: on-failure
+    restart: unless-stopped
     environment:
       ME_CONFIG_BASICAUTH_USERNAME: admin
       ME_CONFIG_BASICAUTH_PASSWORD: admin

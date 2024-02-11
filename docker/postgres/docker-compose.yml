@@ -4,7 +4,7 @@ services:
   postgres:
     container_name: postgres
     image: postgres:16.1-alpine3.19
-    restart: on-failure
+    restart: unless-stopped
     environment:
       POSTGRES_USER: postgres
       POSTGRES_DB: postgres
@@ -16,7 +16,7 @@ services:
   pgadmin:
     container_name: pgadmin
     image: dpage/pgadmin4:8.3
-    restart: on-failure
+    restart: unless-stopped
     environment:
       PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
       PGADMIN_DEFAULT_PASSWORD: "admin"

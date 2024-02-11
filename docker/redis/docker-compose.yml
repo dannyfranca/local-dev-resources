@@ -4,7 +4,7 @@ services:
   redis:
     container_name: redis
     image: redis:7.2.3-alpine3.19
-    restart: on-failure
+    restart: unless-stopped
     command: redis-server /usr/local/etc/redis/redis.conf
     volumes:
       - ./redis.conf:/usr/local/etc/redis/redis.conf
@@ -14,7 +14,7 @@ services:
     container_name: redis-commander
     hostname: redis-commander
     image: ghcr.io/joeferner/redis-commander:0.8.1
-    restart: on-failure
+    restart: unless-stopped
     environment:
       - REDIS_HOSTS=local:redis:6379
     ports:
